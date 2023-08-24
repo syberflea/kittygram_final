@@ -9,14 +9,16 @@ from .models import Achievement, AchievementCat, Cat
 
 
 class Hex2NameColor(serializers.Field):
+
     def to_representation(self, value):
         return value
 
     def to_internal_value(self, data):
         try:
             data = webcolors.hex_to_name(data)
-        except ValueError:
-            raise serializers.ValidationError('Для этого цвета нет имени')
+        except ValueError as err:
+            raise serializers.ValidationError('Для этого цвета нет имени')\
+                from err
         return data
 
 
@@ -29,6 +31,7 @@ class AchievementSerializer(serializers.ModelSerializer):
 
 
 class Base64ImageField(serializers.ImageField):
+
     def to_internal_value(self, data):
         if isinstance(data, str) and data.startswith('data:image'):
             format, imgstr = data.split(';base64,')

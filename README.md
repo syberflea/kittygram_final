@@ -104,3 +104,5 @@ location / {
 sudo nginx -t 
 sudo service nginx reload
 ```
+
+(с) Евгений Андронов, 2023
