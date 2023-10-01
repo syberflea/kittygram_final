@@ -1,0 +1,23 @@
+server {
+
+    listen 80;
+    server_name 51.250.19.48 syberflea.hopto.org;
+    
+    location / {
+        root   /var/www/kittygram;
+        index  index.html index.htm;
+        try_files $uri /index.html;
+    }
+    location /admin/ {
+                proxy_pass http://127.0.0.1:8080;
+    }
+}
+
+SECRET_KEY = 'django-insecure-cg6*%6d51ef8f#4!r3*$vmxm4)abgjw8mo!4y-q*uq1!4$-89$'
+DEBUG = False
+['51.250.19.48', '127.0.0.1', 'localhost', 'syberflea.hopto.org']
+EX_IP = 51.250.19.48
+LOC_IP = 127.0.0.1
+EX_HOST = 'syberflea.hopto.org'
+LOC_HOST = 'localhost'
+os.getenv('')
