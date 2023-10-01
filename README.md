@@ -105,4 +105,4 @@ sudo nginx -t
 sudo service nginx reload
 ```
 
-(с) Евгений Андронов, 2023
+(с) Евгений Андронов, 2023 - 2024
